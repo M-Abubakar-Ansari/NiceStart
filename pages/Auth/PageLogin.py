@@ -45,7 +45,7 @@ async def create():
     INIT_THEME()
     with Center(clas="w-full h-full"):
         with Card("max-w-md w-full h-fit flex flex-col"):
-            Label("Sign Up", "w-full border-b-2 text-2xl font-bold text-center")
+            Label("Login", "w-full border-b-2 text-2xl font-bold text-center")
             for i in inputs_and_labels:
                 LabeledInput(*i)
             Label("", "w-full border-1")
