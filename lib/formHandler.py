@@ -4,8 +4,9 @@ class Variable:
         self.value = value
 
 class Form:
-    def __init__(self, variables = []):
+    def __init__(self, variables = [], name:str = "form"):
         self.variables = variables
+        self.name = name
     
     def add_variable(self, variable):
         self.variables.append(variable)
@@ -23,3 +24,6 @@ class Form:
             return [i for i in self.variables if i.name == name][0]
         else:
             raise AttributeError(f"Not Known property of Form: {name}")
+    
+    def __repr__(self):
+        return f'{self.name.title()} Data:' + '\n' + '\n'.join([f"\t{i.name} = {i.value}" for i in self.variables])

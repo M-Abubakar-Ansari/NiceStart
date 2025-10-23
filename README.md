@@ -49,9 +49,10 @@ Project
 ├── utils
 │   ├── __init__.py
 │   ├── Auth.py
-│   └── ENV.py
+├── ENV.py
 ├── MAIN.py
-└── README.md
+├── README.md
+└── requirements.txt
 ```
 
 ### 1. Backend: 

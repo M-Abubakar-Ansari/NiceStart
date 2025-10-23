@@ -19,3 +19,10 @@ THEME_DEFAULT = dict(
     warning = '#f2c037',
     btn = "#237bcd"
 )
+
+DB_CREDS = dict(
+    ENGINE = 'sqlite',
+    NAME = "database.sqlite",
+)
+
+MIGRATIONS_FOLDER = "db.Migrations"
