@@ -1,11 +1,11 @@
 from UI import LabeledInput, Card, Center, Label, INIT_THEME, Button
-from library.formHandler import Variable, Form
+from library.formHandler import Variable, Group
 
 variables = [
     Variable("identifier", ""),
     Variable("password", ""),
 ]
-form = Form(variables)
+form = Group(variables)
 
 inputs_and_labels = [
     [

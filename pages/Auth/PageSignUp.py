@@ -1,15 +1,27 @@
 from UI import LabeledInput, Card, Center, Label, INIT_THEME, Button
 from library.formHandler import Variable, Group
 from backend import ControlAuth
+from utils.Auth import updateUserStorage
+from utils import navigate
 
-def signup():
-    pass
+async def signup():
+    data = form.to_dict()
+    response = await ControlAuth.create(data)
+    if response.get("success"):
+        updateUserStorage({k:v for k,v, in response.get("data")[0].items() if k!="password"})
+        updateUserStorage({"auth":True})
+        navigate('/')
+    else:
+        errors = response.get("errors")
+        errs.name.value = errors.get("name", "")
+        errs.email.value = errors.get("email", "")
+        errs.password.value = errors.get("password", "")
 
 form_variables = [
-    Variable("name", ""),
-    Variable("email", ""),
-    Variable("password", ""),
-    Variable("confirm", ""),
+    Variable("name", "name"),
+    Variable("email", "mail@gmail.com"),
+    Variable("password", "passWord123"),
+    Variable("confirm", "passWord123"),
 ]
 errs_variables = [
     Variable("name", ""),
@@ -26,6 +38,7 @@ inputs_and_labels = [
             name = dict(
                 text = "Name *",
                 clas = "text-lg font-bold",
+                err  = errs.name
             )
         ),
         dict(
@@ -40,6 +53,7 @@ inputs_and_labels = [
             email = dict(
                 text = "Email *",
                 clas = "text-lg font-bold",
+                err  = errs.email
             )
         ),
         dict(
@@ -54,6 +68,7 @@ inputs_and_labels = [
             password = dict(
                 text = "Password *",
                 clas = "text-lg font-bold",
+                err  = errs.password
             )
         ),
         dict(
@@ -68,6 +83,7 @@ inputs_and_labels = [
                 placeholder = "Confirm...",
                 password = True,
                 password_toggle_button = True,
+                model = form.confirm
             )
         ),
     ]
@@ -81,4 +97,4 @@ async def create():
             for i in inputs_and_labels:
                 LabeledInput(*i)
             Label("", "w-full border-1")
-            Button("Create Account", lambda:(), "w-full")
+            Button("Create Account", signup, "w-full")

@@ -70,7 +70,7 @@ def Input(
     ):
     inp = ui.input(**kwargs).props("dense outlined").classes(clas).props(props).style(styles)
     if model:
-        inp.bind_value_to(model, 'value')
+        inp.bind_value(model, 'value')
     return inp
 
 def Button(
