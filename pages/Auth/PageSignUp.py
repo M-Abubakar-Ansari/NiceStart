@@ -1,7 +1,7 @@
 from UI import LabeledInput, Card, Center, Label, INIT_THEME, Button
 from library.formHandler import Variable, Group
 from backend import ControlAuth
-from utils.Auth import updateUserStorage
+from utils.Storage import updateUserStorage
 from utils import navigate
 
 async def signup():
