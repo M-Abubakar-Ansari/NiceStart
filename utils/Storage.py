@@ -10,3 +10,5 @@ def setUserStorage(data: dict):
 def clearUserStorage():
     app.storage.user.clear()
 
+def getUserStorage():
+    return dict(app.storage.user)
