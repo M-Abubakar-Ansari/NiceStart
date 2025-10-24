@@ -11,7 +11,7 @@ inputs_and_labels = [
     [
         dict(
             email = dict(
-                text = "Email/Password *",
+                text = "Email/Name *",
                 clas = "text-lg font-bold",
             )
         ),

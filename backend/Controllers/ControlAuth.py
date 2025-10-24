@@ -5,8 +5,10 @@ from backend.Models.ModelAuth import Auth
 TABLE = "users"
 
 async def _is_unique(value: str, column: str):
-    print(await RUN_SQL(Query(TABLE).select(column).where(**{column: value}).SQL()))
-    return not bool(await RUN_SQL(Query(TABLE).select(column).where(**{column: value}).SQL()))
+    query = Query(TABLE).select("COUNT(*)").where(**{column: value}).SQL()
+    result = await RUN_SQL(query, to_fetch=True)
+    count = result[0] if result else 0
+    return count == 0
 
 async def _validate(values: dict) -> dict:
     name = values.get("name")
