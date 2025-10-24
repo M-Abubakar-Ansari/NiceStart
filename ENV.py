@@ -17,7 +17,7 @@ THEME_DEFAULT = dict(
     error = '#c10015',
     info = '#31ccec',
     warning = '#f2c037',
-    btn = "#237bcd"
+    btn = "#3d8fdb"
 )
 
 DB_CREDS = dict(
