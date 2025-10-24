@@ -1,8 +1,13 @@
-from UI import Label, Card, Center, SoftButton, Button, Raw
+from UI import Label, Card, Center, SoftButton, LinkBtn, Raw, AddSpace
+from routes import ROUTES
 from ENV import APP_NAME, FAVICON
 
 def CompHero():
-    with Card("w-full h-fit border-2"):
-        with Center("w-full h-full gap-2"):
+    with Card("w-full h-fit flex justify-center items-center border-0 sm:border-12"):
+        with Center("max-w-3xl h-full gap-2 flex flex-col"):
             Label(APP_NAME + FAVICON, "text-5xl md:text-7xl lg:text-9xl font-extrabold w-full text-center")
-            Label("Start your projects in a nice way!", "text-xl w-xl italic text-right")
+            Label("Start your projects in a nice way!", "text-lg w-full border-b-2 italic text-right")
+            with Raw.RawRow("w-full justify-center items-center gap-2"):
+                LinkBtn("Sign Up", ROUTES.SIGNUP, icon="add")
+                LinkBtn("Login", ROUTES.LOGIN, icon="person")
+                AddSpace()
